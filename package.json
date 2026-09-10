@@ -1,0 +1,17 @@
+{
+  "name": "emberwing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A one-thumb arcade flyer about a purple dragon.",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "start": "node tools/serve.js",
+    "test": "node --test \"test/*.test.js\"",
+    "sim": "node tools/sim.js",
+    "icons": "python3 tools/make_icons.py"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

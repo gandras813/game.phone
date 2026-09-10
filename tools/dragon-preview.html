@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><title>dragon preview</title>
+<style>body{margin:0;background:#1a0d2e}canvas{display:block}</style>
+<canvas id="c" width="1200" height="820"></canvas>
+<script type="module">
+import { Renderer } from '../src/render.js';
+import { Game } from '../src/game.js';
+const c = document.getElementById('c');
+const r = new Renderer(c);
+r.dpr = 1; r.cssW = 1200; r.cssH = 820; r.viewH = 820; r.scale = 1;
+const g = new Game();
+const ctx = c.getContext('2d');
+ctx.fillStyle = '#1a0d2e'; ctx.fillRect(0,0,1200,820);
+const pal = r.palette(g);
+const poses = [
+  { tilt: 0,     flap: 0,    label: 'level / mid-beat' },
+  { tilt: -0.45, flap: 1,    label: 'climb / wings up' },
+  { tilt: -0.2,  flap: -1,   label: 'climb / wings down' },
+  { tilt: 0.55,  flap: -0.3, label: 'dive' },
+  { tilt: 0.1,   flap: 0.6,  label: 'glide' },
+  { tilt: -0.3,  flap: 0.2,  label: 'rage', rage: true },
+];
+poses.forEach((p, i) => {
+  const col = i % 3, row = (i / 3) | 0;
+  const cx = 200 + col * 400, cy = 210 + row * 400;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(2.6, 2.6);
+  g.dragon.x = 0; g.dragon.y = 0; g.dragon.tilt = p.tilt;
+  g.dragon.flapPhase = Math.asin(Math.max(-1, Math.min(1, p.flap)));
+  if (p.flap === -1) g.dragon.flapPhase = -Math.PI / 2;
+  g.dragon.flapPower = 1; g.dragon.tailPhase = 0.6; g.dragon.ember = 100;
+  g.dragon.rageTime = p.rage ? 3 : 0;
+  g.camX = 0; g.time = 1;
+  r.drawDragon(ctx, g, pal);
+  ctx.restore();
+  ctx.fillStyle = 'rgba(255,255,255,.5)'; ctx.font = '13px system-ui';
+  ctx.fillText(p.label, cx - 60, cy + 120);
+  ctx.strokeStyle = 'rgba(255,255,255,.08)'; ctx.strokeRect(cx-190, cy-190, 380, 320);
+});
+document.title = 'ready';
+</script>

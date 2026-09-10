@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Emberwing">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#331463"/>
+      <stop offset="1" stop-color="#090514"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.46" r="0.52">
+      <stop offset="0" stop-color="#a259ff" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#a259ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skin" x1="0" y1="0.27" x2="0" y2="0.69">
+      <stop offset="0" stop-color="#d294ff"/>
+      <stop offset="1" stop-color="#5e22a4"/>
+    </linearGradient>
+    <linearGradient id="horn" x1="0" y1="0.12" x2="0" y2="0.52">
+      <stop offset="0" stop-color="#ffe4a8"/>
+      <stop offset="1" stop-color="#c99a55"/>
+    </linearGradient>
+    <clipPath id="squircle"><rect x="0" y="0" width="512" height="512" rx="113" ry="113"/></clipPath>
+  </defs>
+  <g clip-path="url(#squircle)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <rect width="512" height="512" fill="url(#halo)"/>
+    <g transform="translate(256 256) scale(0.88) translate(-256 -256)">
+      <path d="M102 228 L49 205 L94 264 Z" fill="#5e22a4"/>
+      <path d="M96 271 L44 266 L114 307 Z" fill="#5e22a4"/>
+      <path d="M205 154 L38 59 L77 118 L134 170 Z" fill="url(#horn)"/>
+      <path d="M154 190 L20 138 L61 180 L128 211 Z" fill="url(#horn)"/>
+      <path d="M105 220 L128 169 L192 146 L266 155 L348 179 L440 220 L444 256
+               L358 276 L287 300 L220 332 L154 338 L110 302 L92 256 Z" fill="url(#skin)"/>
+      <path d="M438 246 L338 266 L241 292 L180 303 L180 314 L241 303 L338 277 L438 256 Z"
+            fill="#20062e" opacity="0.62"/>
+      <ellipse cx="407" cy="237" rx="10" ry="7" fill="#20062e" opacity="0.6"/>
+      <ellipse cx="220" cy="212" rx="30" ry="25" fill="#20062e"/>
+      <ellipse cx="222" cy="212" rx="23" ry="19" fill="#ffe066"/>
+      <ellipse cx="227" cy="212" rx="9" ry="20" fill="#20062e"/>
+    </g>
+  </g>
+</svg>
