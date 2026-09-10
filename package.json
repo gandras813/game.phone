@@ -9,9 +9,13 @@
     "start": "node tools/serve.js",
     "test": "node --test \"test/*.test.js\"",
     "sim": "node tools/sim.js",
-    "icons": "python3 tools/make_icons.py"
+    "icons": "python3 tools/make_icons.py",
+    "build": "node tools/build-single.js && node tools/build-single.js --fragment"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }

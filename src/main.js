@@ -29,6 +29,11 @@ const fx = makeFx(audio, { haptics: () => save.get('haptics') });
 const game = new Game(fx);
 const input = new Input(frame, { fire: btnFire, rage: btnRage });
 
+// Name the controls the player actually has in front of them.
+if (matchMedia('(pointer: fine)').matches && !navigator.maxTouchPoints) {
+  renderer.hintText = 'HOLD SPACE TO FLY   ·   F TO BURN';
+}
+
 // --- layout ------------------------------------------------------------
 function safeInsets() {
   const cs = getComputedStyle($('safe-probe'));

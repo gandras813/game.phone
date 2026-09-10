@@ -76,6 +76,7 @@ export class Renderer {
     this.safe = { top: 0, right: 0, bottom: 0, left: 0 };
     this.motes = [];
     this.quality = 1;
+    this.hintText = 'HOLD TO FLY   ·   TAP FIRE TO BURN';
   }
 
   resize(cssW, cssH, dpr, safe) {
@@ -1101,7 +1102,7 @@ export class Renderer {
       ctx.textAlign = 'center';
       ctx.font = '700 13px ui-rounded, system-ui, sans-serif';
       ctx.fillStyle = `rgba(255,255,255,${a * 0.85})`;
-      ctx.fillText('HOLD TO FLY   ·   TAP FIRE TO BURN', W / 2, this.cssH * 0.62);
+      ctx.fillText(this.hintText, W / 2, this.cssH * 0.62);
     }
     ctx.restore();
   }

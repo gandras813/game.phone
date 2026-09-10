@@ -260,7 +260,9 @@ body.lefty .pad { right: auto; left: calc(env(safe-area-inset-left) + 16px); }
 }
 .how ul { margin: 6px 0 8px; padding-left: 18px; font-size: 12.5px; line-height: 1.7; color: var(--dim); }
 .how b { color: var(--ink); }
-.keys { margin: 0; font-size: 11px; color: var(--dim); text-align: center; }
+.keys { display: none; margin: 0 0 14px; font-size: 11px; color: var(--dim); text-align: center; }
+/* Only worth the space where there is a keyboard to use. */
+@media (pointer: fine) { .keys { display: block; } }
 kbd {
   padding: 1px 5px;
   border-radius: 5px;
